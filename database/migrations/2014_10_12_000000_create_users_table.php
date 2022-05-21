@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('about');
             $table->string('cardId')->unique();
             // $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('pinCode');
             $table->boolean('isAdmin');
             // $table->rememberToken();
             // $table->timestamps();

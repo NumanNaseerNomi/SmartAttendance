@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('deviceId')->unique();
+            $table->string('token')->unique();
             $table->string('description');
             $table->boolean('isBlocked');
         });
