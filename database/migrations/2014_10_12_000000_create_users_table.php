@@ -18,7 +18,7 @@ return new class extends Migration
             {
                 $table->id();
                 $table->string('name');
-                $table->string('userName');
+                $table->string('userName')->unique();
                 $table->string('about');
                 $table->string('cardId')->unique();
                 $table->string('pinCode');
