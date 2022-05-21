@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attendance', function (Blueprint $table) {
-            $table->id();
-            $table->integer('userId');
-            $table->integer('deviceId');
-            $table->dateTime('checkIn', $precision = 0);
-            $table->dateTime('checkOut', $precision = 0)->nullable();
-            $table->boolean('isPresent');
-        });
+        Schema::create('attendance',
+            function (Blueprint $table)
+            {
+                $table->id();
+                $table->integer('userId');
+                $table->integer('deviceId');
+                $table->dateTime('checkIn', $precision = 0);
+                $table->dateTime('checkOut', $precision = 0)->nullable();
+                $table->boolean('isPresent');
+            }
+        );
     }
 
     /**

@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('devices', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('token')->unique();
-            $table->string('description');
-            $table->boolean('isBlocked');
-        });
+        Schema::create('devices',
+            function (Blueprint $table)
+            {
+                $table->id();
+                $table->string('name');
+                $table->string('token')->unique();
+                $table->string('description');
+                $table->boolean('isBlocked');
+            }
+        );
     }
 
     /**
