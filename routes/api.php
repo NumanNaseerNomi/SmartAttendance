@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DevicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,12 @@ use App\Http\Controllers\UsersController;
 
 Route::get('/getUsers', [UsersController::class, 'index']);
 Route::post('/getUser', [UsersController::class, 'show']);
-Route::post('/addUser', [UsersController::class, 'store']);
-Route::post('/updateUser', [UsersController::class, 'update']);
-Route::post('/deleteUser', [UsersController::class, 'destroy']);
+Route::put('/addUser', [UsersController::class, 'store']);
+Route::patch('/updateUser', [UsersController::class, 'update']);
+Route::delete('/deleteUser', [UsersController::class, 'destroy']);
+
+Route::get('/getDevices', [DevicesController::class, 'index']);
+Route::post('/getDevice', [DevicesController::class, 'show']);
+Route::put('/addDevice', [DevicesController::class, 'store']);
+Route::patch('/updateDevice', [DevicesController::class, 'update']);
+Route::delete('/deleteDevice', [DevicesController::class, 'destroy']);
