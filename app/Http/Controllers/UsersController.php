@@ -80,9 +80,9 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
-        $user = UsersModel::find($request->id);
-        $user->update($request->all());
-        return $user;
+        $result = UsersModel::find($request->id);
+        $result->update($request->all());
+        return $result;
     }
 
     /**
