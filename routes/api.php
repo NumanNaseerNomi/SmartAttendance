@@ -33,10 +33,5 @@ Route::delete('/deleteDevice', [DevicesController::class, 'destroy']);
 
 Route::get('/getAttendances', [AttendanceController::class, 'getAttendances']);
 Route::post('/getAttendance', [AttendanceController::class, 'getAttendance']);
-// Route::get('/getAttendances', [AttendanceController::class, 'index']);
-// Route::post('/getAttendance', [AttendanceController::class, 'show']);
-// Route::put('/addAttendance', [AttendanceController::class, 'store']);
-// Route::patch('/updateAttendance', [AttendanceController::class, 'update']);
-
 Route::put('/markAttendance', [AttendanceController::class, 'markAttendance']);
 Route::delete('/deleteAttendance', [AttendanceController::class, 'delete']);
