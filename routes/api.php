@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\AttendanceController;
+// use App\Http\Controllers\MarkAttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +19,6 @@ use App\Http\Controllers\DevicesController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
 Route::get('/getUsers', [UsersController::class, 'index']);
 Route::post('/getUser', [UsersController::class, 'show']);
 Route::put('/addUser', [UsersController::class, 'store']);
@@ -33,3 +30,13 @@ Route::post('/getDevice', [DevicesController::class, 'show']);
 Route::put('/addDevice', [DevicesController::class, 'store']);
 Route::patch('/updateDevice', [DevicesController::class, 'update']);
 Route::delete('/deleteDevice', [DevicesController::class, 'destroy']);
+
+Route::get('/getAttendances', [AttendanceController::class, 'getAttendances']);
+Route::post('/getAttendance', [AttendanceController::class, 'getAttendance']);
+// Route::get('/getAttendances', [AttendanceController::class, 'index']);
+// Route::post('/getAttendance', [AttendanceController::class, 'show']);
+// Route::put('/addAttendance', [AttendanceController::class, 'store']);
+// Route::patch('/updateAttendance', [AttendanceController::class, 'update']);
+
+Route::put('/markAttendance', [AttendanceController::class, 'markAttendance']);
+Route::delete('/deleteAttendance', [AttendanceController::class, 'delete']);
