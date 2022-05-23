@@ -78,9 +78,9 @@ class DevicesController extends Controller
      */
     public function update(Request $request)
     {
-        $device = DevicesModel::find($request->id);
-        $device->update($request->all());
-        return $device;
+        $result = DevicesModel::find($request->id);
+        $result->update($request->all());
+        return $result;
     }
 
     /**
