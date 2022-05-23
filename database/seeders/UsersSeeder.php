@@ -23,6 +23,7 @@ class UsersSeeder extends Seeder
                 'cardId' => '00000',
                 'pinCode' => Hash::make('1234'),
                 'isAdmin' => '1',
+                'isBlocked' => '0',
             ]
         );
     }
