@@ -23,6 +23,7 @@ return new class extends Migration
                 $table->string('cardId')->unique();
                 $table->string('pinCode');
                 $table->boolean('isAdmin');
+                $table->boolean('isBlocked');
             }
         );
     }
