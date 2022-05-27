@@ -2,7 +2,7 @@
 <!-- Footer - Start -->
 <footer>
   <!-- NOMi - Bootstrap JavaScript File - Start -->
-  <script src="./plugins/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('/plugins/bootstrap/bootstrap.bundle.min.js'); }}"></script>
   <!-- NOMi - Bootstrap JavaScript File - End -->
   <script>
     // if (!localStorage.getItem("NOMi.theme"))
