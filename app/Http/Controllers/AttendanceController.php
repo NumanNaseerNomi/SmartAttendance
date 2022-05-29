@@ -12,7 +12,8 @@ class AttendanceController extends Controller
 {
     public function getAttendances()
     {
-        $result = AttendanceModel::all();
+        $result = AttendanceModel::orderBy('checkIn', 'DESC')->get();
+        // $result = AttendanceModel::all();
         
         $attendances = array();
 
