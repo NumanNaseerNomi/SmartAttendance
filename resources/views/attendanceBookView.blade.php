@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 	@include("components/headerComponent")
-	<body class="bg-white text-dark">
+	<body>
 		@include("components/navbarViewComponent")
 		<br/>
 		<div class="container">
 			<div class="card text-center">
 				<div class="card-header"><h5>Attendance Book</h5></div>
-				<div class="card-body"><div id="AttendanceTable" class="overflow-auto"></div></div>
+				<div class="card-body"><div id="attendanceTable" class="overflow-auto"></div></div>
 				<div class="card-footer text-muted">
 					<button class="btn btn-primary" type="button" id="printTable"><i class="fas fa-print">&emsp;</i>Print</button>
 					<button class="btn btn-primary" type="button" id="downloadTable"><i class="fas fa-file-code">&emsp;</i>Download as JSON</button>
@@ -19,39 +19,7 @@
 </html>
 
 <script>
-	// function plotAttendanceTable(config)
-	// {
-	// 	let row = document.getElementById("attendanceBookTable").insertRow(0);
-	// 	row.insertCell(0).innerHTML = config.srNumber;
-	// 	row.insertCell(1).innerHTML = config.userName;
-	// 	row.insertCell(2).innerHTML = config.cardId;
-	// 	row.insertCell(3).innerHTML = config.aboutUser;
-	// 	row.insertCell(4).innerHTML = config.dateTime;
-	// }
-	
-	// fetch('/api/getAttendances')
-	// .then((response) => response.json())
-	// .then((respondedJsonData) =>
-	// {console.log(respondedJsonData);
-	// 	for (let i = 0; i < respondedJsonData.length; i++)
-	// 	{
-	// 		let dataConfig =
-	// 		{
-	// 			srNumber 	: i + 1,
-	// 			userName 	: respondedJsonData[i].user.name + '<br/> (' + respondedJsonData[i].user.userName + ')',
-	// 			cardId 		: respondedJsonData[i].user.cardId,
-	// 			aboutUser 	: respondedJsonData[i].user.about,
-	// 			dateTime 	: "<span class='text-success'>IN: " + respondedJsonData[i].attendance.checkIn +
-	// 							"</span><br/> <span class='text-primary'>OUT: " + respondedJsonData[i].attendance.checkOut + "</span>"
-	// 		};
-			
-	// 		plotAttendanceTable(dataConfig);
-	// 	}
-	// });
-</script>
-
-<script>
-	var table = new Tabulator(document.getElementById("AttendanceTable"),
+	var table = new Tabulator(document.getElementById("attendanceTable"),
 	{
 		layout:"fitColumns",
 		ajaxURL:"/api/getAttendances",
