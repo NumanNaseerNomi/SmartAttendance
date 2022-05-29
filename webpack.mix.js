@@ -16,5 +16,8 @@ const mix = require('laravel-mix');
 //         //
 //     ]);
 
-mix.postCss('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/plugins/bootstrap/');
-mix.js('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/plugins/bootstrap/');
+mix.copy('node_modules/bootstrap/dist/css/bootstrap.min.css', 'public/plugins/bootstrap/');
+mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/plugins/bootstrap/');
+
+mix.copy('node_modules/tabulator-tables/dist/css/tabulator.min.css', 'public/plugins/tabulator/');
+mix.copy('node_modules/tabulator-tables/dist/js/tabulator.min.js', 'public/plugins/tabulator/');
