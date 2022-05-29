@@ -2,8 +2,11 @@
 <!-- Footer - Start -->
 <footer>
   <!-- NOMi - Bootstrap JavaScript File - Start -->
-  <script src="{{ asset('/plugins/bootstrap/bootstrap.bundle.min.js'); }}"></script>
+  <script src="{{ asset('/plugins/bootstrap/bootstrap.bundle.min.js') }}"></script>
   <!-- NOMi - Bootstrap JavaScript File - End -->
+  <!-- NOMi - Tabulator JavaScript File - Start -->
+  <script src="{{ asset('/plugins/tabulator/tabulator.min.js') }}"></script>
+  <!-- NOMi - Tabulator JavaScript File - End -->
   <script>
     // if (!localStorage.getItem("NOMi.theme"))
     // {
