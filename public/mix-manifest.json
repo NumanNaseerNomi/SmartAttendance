@@ -1,4 +1,6 @@
 {
+    "/plugins/bootstrap/bootstrap.min.css": "/plugins/bootstrap/bootstrap.min.css",
     "/plugins/bootstrap/bootstrap.bundle.min.js": "/plugins/bootstrap/bootstrap.bundle.min.js",
-    "/plugins/bootstrap/bootstrap.min.css": "/plugins/bootstrap/bootstrap.min.css"
+    "/plugins/tabulator/tabulator.min.css": "/plugins/tabulator/tabulator.min.css",
+    "/plugins/tabulator/tabulator.min.js": "/plugins/tabulator/tabulator.min.js"
 }
