@@ -6,7 +6,6 @@
 		<br/>
 		<div class="container">
 			<div class="row justify-content-center">
-				<!-- <div class="col"></div> -->
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="card shadow">
 						<div class="card-header text-center"><h5>Change Pin Code</h5></div>
@@ -22,8 +21,8 @@
 									<input type="password" class="form-control" name="newPinCode" id="newPinCode" required>
 								</div>
 								<div class="mb-3">
-									<label for="confirmPinCode" class="form-label">Confirm New Pin Code</label>
-									<input type="password" class="form-control" name="confirmPinCode" id="confirmPinCode" required>
+									<label for="newPinCode_confirmation" class="form-label">Confirm New Pin Code</label>
+									<input type="password" class="form-control" name="newPinCode_confirmation" id="newPinCode_confirmation" required>
 								</div>
 								<div class="d-grid gap-2">
 									<button type="submit" class="btn btn-primary btn-sm">Save</button>
@@ -32,11 +31,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col"></div> -->
 			</div>
 		</div>
-		<!-- NOMi - Bootstrap Bundle with Popper - Start -->
-		<!-- <script src="plugins/bootstrap/bootstrap.bundle.min.js"></script> -->
-		<!-- NOMi - Bootstrap Bundle with Popper - End -->
+		@include("components/footerComponent")
 	</body>
 </html>
