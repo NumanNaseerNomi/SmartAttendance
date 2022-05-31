@@ -11,6 +11,6 @@ class UsersModel extends Model
 
     protected $table = 'Users';
     protected $fillable = ['name', 'userName', 'about', 'cardId', 'pinCode', 'isAdmin', 'isBlocked'];
-    protected $hidden = ['pinCode'];
+    // protected $hidden = ['pinCode'];
     public $timestamps = false;
 }
