@@ -6,7 +6,6 @@
 		<br/>
 		<div class="container">
 			<div class="row justify-content-center">
-				<!-- <div class="col"></div> -->
 				<div class="col-sm-12 col-md-6 col-lg-4">
 					<div class="card shadow">
 						<div class="card-header text-center"><h5>Login</h5></div>
@@ -28,11 +27,8 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col"></div> -->
 			</div>
 		</div>
-		<!-- NOMi - Bootstrap Bundle with Popper - Start -->
-		<!-- <script src="plugins/bootstrap/bootstrap.bundle.min.js"></script> -->
-		<!-- NOMi - Bootstrap Bundle with Popper - End -->
+		@include("components/footerComponent")
 	</body>
 </html>
