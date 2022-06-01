@@ -10,7 +10,7 @@
 					<div class="card shadow">
 						<div class="card-header text-center"><h5>Login</h5></div>
 						<div class="card-body">
-							<form method="post" action="{{ url('/loginAuth') }}">
+							<form method="post" action="{{ url('/login') }}">
 								@csrf
 								<div class="mb-3">
 									<label for="userName" class="form-label">Enter User Name</label>
