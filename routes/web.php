@@ -5,19 +5,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 // use App\Http\Middleware\AuthMiddleware;
+// use App\Http\Middleware\ifAdminMiddleware;
 
 // Route::get('/', function () { return view('welcome'); });
-Route::get('/', function () { return redirect('/attendanceBook'); })->middleware('AuthMiddleware');
+Route::get('/', function () { return redirect('/attendanceBook'); })->middleware('Authen');
 
-Route::get('/attendanceBook', function () { return view('attendanceBookView'); })->middleware('AuthMiddleware');
-Route::get('/manageUsers', function () { return view('manageUsersView'); })->middleware('AuthMiddleware');
-Route::get('/manageDevices', function () { return view('manageDevicesView'); })->middleware('AuthMiddleware');
+Route::get('/attendanceBook', function () { return view('attendanceBookView'); })->middleware('Authen');
+Route::get('/manageUsers', function () { return view('manageUsersView'); })->middleware(['Authen', 'ifAdmin']);
+Route::get('/manageDevices', function () { return view('manageDevicesView'); })->middleware(['Authen', 'ifAdmin']);
 
 
-Route::get('/login', [AuthController::class, 'loginView'])->middleware('AuthMiddleware');
-Route::post('/login', [AuthController::class, 'loginAuth'])->middleware('AuthMiddleware');
+Route::get('/login', [AuthController::class, 'loginView'])->middleware('Authen');
+Route::post('/login', [AuthController::class, 'loginAuth'])->middleware('Authen');
 
-Route::get('/passwordReset', [AuthController::class, 'passwordResetView'])->middleware('AuthMiddleware');
-Route::post('/passwordResetAuth', [AuthController::class, 'passwordResetAuth'])->middleware('AuthMiddleware');
+Route::get('/passwordReset', [AuthController::class, 'passwordResetView'])->middleware(['Authen', 'ifAdmin']);
+Route::post('/passwordResetAuth', [AuthController::class, 'passwordResetAuth'])->middleware(['Authen', 'ifAdmin']);
 
-Route::get('/logout', [AuthController::class, 'logout'])->middleware('AuthMiddleware');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('Authen');
