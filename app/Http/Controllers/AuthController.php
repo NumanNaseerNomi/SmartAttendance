@@ -15,10 +15,17 @@ class AuthController extends Controller
 
     function loginAuth(Request $request)
     {
-        // return  Hash::make($request->pinCode);
-        $usersModel = UsersModel::where('userName', $request->userName)->first();
-        dd(Hash::check($request->pinCode, $usersModel->pinCode));
-        // dd($usersModel->pinCode);
+        $user = UsersModel::where('userName', $request->userName)->first();
+        
+        if($user && Hash::check($request->pinCode, $user->pinCode))
+        {
+            $request->session()->put('user', $user);
+            return redirect('/');
+        }
+        else
+        {
+            return "Invalid";
+        }
     }
 
     function passwordResetView()
@@ -36,5 +43,11 @@ class AuthController extends Controller
             ]
         );
         dd($request);
+    }
+
+    function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/');
     }
 }
