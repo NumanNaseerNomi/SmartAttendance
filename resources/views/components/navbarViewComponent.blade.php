@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <!-- NOMi - Side Navigation Bar - Start -->
             <div class="dropdown">
-                @if(Session::get('user'))
+                @if(Session::get('user') && Session::get('user')->isAdmin)
                     <button class="btn btn-link text-dark py-0" title="Menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars fs-4"></i></button>
                     <div class="dropdown-menu dropdown-menu-start shadow bg-light" aria-labelledby="menu">
                         <a class="dropdown-item text-dark my-2" href="{{url('/attendanceBook')}}">
