@@ -4,10 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 
-// use App\Http\Middleware\AuthMiddleware;
-// use App\Http\Middleware\ifAdminMiddleware;
-
-// Route::get('/', function () { return view('welcome'); });
 Route::get('/', function () { return redirect('/attendanceBook'); })->middleware('Authen');
 
 Route::get('/attendanceBook', function () { return view('attendanceBookView'); })->middleware('Authen');
