@@ -53,7 +53,7 @@
                                 <div class="small">{{Session::get('user')->userName}}</div>
                             </span>
                             <hr class="dropdown-divider border-secondary"/>
-                            <a class="dropdown-item text-dark my-2" href="{{url('/passwordReset')}}">
+                            <a class="dropdown-item text-dark my-2" href="{{url('/settings')}}">
                                 <div class="row flex-nowrap">
                                     <div class="col-2 text-center"><i class="fas fa-cogs"></i></div>
                                     <div class="col-10">Settings</div>
