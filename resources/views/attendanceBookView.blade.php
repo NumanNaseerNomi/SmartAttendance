@@ -22,7 +22,7 @@
 	var table = new Tabulator(document.getElementById("attendanceTable"),
 	{
 		layout:"fitColumns",
-		data:<?php echo $attendanceDetail; ?>,
+		data:{{ Js::from($attendanceDetail) }},
 		placeholder:"No Record Found.",
 		pagination: true,
 		paginationSize:10,
