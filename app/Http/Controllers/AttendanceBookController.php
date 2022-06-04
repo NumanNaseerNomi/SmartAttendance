@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Session;
-use Illuminate\Database\Eloquent\Collection;
-
+use Illuminate\Http\Request;
 use App\Models\AttendanceModel;
 
 class AttendanceBookController extends Controller
 {
     function attendanceBookView()
     {
-        $result = array();
         $attendanceDetail = array();
-        $attendanceDetail[] = new \stdClass();
 
         if(Session::get('user')->isAdmin)
         {
@@ -22,7 +18,7 @@ class AttendanceBookController extends Controller
         }
         else
         {
-            $result = AttendanceModel::where('userId', Session::get('user')->id)->get();
+            $result = AttendanceModel::where('userId', Session::get('user')->id)->orderBy('checkIn', 'DESC')->get();
         }
 
         if(sizeof($result))
