@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Database\Eloquent\Collection;
 
 use App\Models\AttendanceModel;
 
@@ -11,15 +12,24 @@ class AttendanceBookController extends Controller
 {
     function attendanceBookView()
     {
-        $attendance = array();
+        $result = array();
+        $attendanceDetail = array();
+        $attendanceDetail[] = new \stdClass();
 
         if(Session::get('user')->isAdmin)
         {
             $result = AttendanceModel::orderBy('checkIn', 'DESC')->get();
+        }
+        else
+        {
+            $result = AttendanceModel::where('userId', Session::get('user')->id)->get();
+        }
 
+        if(sizeof($result))
+        {
             for($i = 0; $i < sizeof($result); $i++)
             {
-                $attendance[$i] =
+                $attendanceDetail[$i] =
                 [
                     'attendance' => $result[$i],
                     'user' => AttendanceModel::find($result[$i]->id)->getUser,
@@ -27,48 +37,9 @@ class AttendanceBookController extends Controller
                 ];
             }
         }
-        else
-        {
-            // dd(Session::get('user')->id);
-            $result = AttendanceModel::where('userId', "6")->get();
-            // return "User";
-            // dd($result);
-
-
-            // $result = AttendanceModel::find($request->id);
         
-            if($result)
-            {
-                $attendance =
-                [
-                    'attendance' => $result,
-                    'user' => AttendanceModel::find($result->id)->getUser,
-                    'device' => AttendanceModel::find($result->id)->getDevice
-                ];
-                
-                return $attendance;
-            }
-
-            return $result;
-        }
-
-        // $result = AttendanceModel::orderBy('checkIn', 'DESC')->get();
+        $attendanceDetail = json_encode($attendanceDetail);
         
-        // $attendance = array();
-
-        // for($i = 0; $i < sizeof($result); $i++)
-        // {
-        //     $attendance[$i] =
-        //     [
-        //         'attendance' => $result[$i],
-        //         'user' => AttendanceModel::find($result[$i]->id)->getUser,
-        //         'device' => AttendanceModel::find($result[$i]->id)->getDevice
-        //     ];
-        // }
-
-        dd($attendance);
-        // dd(Session::get('user'));
-
-        return view('attendanceBookView', ['attendance' => $attendance]);
+        return view('attendanceBookView')->with(['attendanceDetail' => $attendanceDetail]);
     }
 }
