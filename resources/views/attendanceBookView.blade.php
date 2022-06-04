@@ -22,7 +22,6 @@
 	var table = new Tabulator(document.getElementById("attendanceTable"),
 	{
 		layout:"fitColumns",
-		// ajaxURL:"/api/getAttendances",
 		data:<?php echo $attendanceDetail; ?>,
 		placeholder:"No Record Found.",
 		pagination: true,
