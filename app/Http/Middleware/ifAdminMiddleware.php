@@ -20,14 +20,11 @@ class ifAdminMiddleware
     {
         if(Session::get('user') && Session::get('user')->isAdmin)
         {
-            // dd(Session::get('user')->isAdmin);
-            // return redirect('/');
             return $next($request);
         }
         else
         {
             return redirect('/');
         }
-        // return $next($request);
     }
 }
