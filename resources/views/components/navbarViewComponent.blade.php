@@ -25,17 +25,21 @@
                             </div>
                         </a>
                         <hr class="dropdown-divider border-secondary"/>
-                        <p class="small m-0 text-center text-dark"><a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank"><strong>NOMi</strong></a> - iDAS.1.0.1</p>
+                        <p class="small m-0 text-center text-dark">
+                            <span>Powered by </span>
+                            <a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank">
+                                <strong>NOMi</strong>
+                            </a>
+                        </p>
                     </div>
                 @endif
             </div>
             
             <!-- NOMi - Side Navigation Bar - End -->
             <div>
-                <button class="btn btn-link text-dark py-0 text-decoration-none" onclick="window.location.href='index.php'" type="button">
+                <a class="btn btn-link text-dark py-0 text-decoration-none" href="{{url('/')}}" type="button">
                     <b class="d-none d-sm-block fs-5">Attendance System</b>
-                    <!-- <b class="d-block d-sm-none">DAS</b> -->
-                </button>
+                </a>
             </div>
             <div>
                 <!-- NOMi - Profile Setting - Start -->
@@ -44,12 +48,12 @@
                         @if(Session::get('user'))
                         <button class="btn btn-link text-dark py-0" title="My Profile" type="button" id="menuDropdownButton" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fs-4"></i></button>
                         <div class="dropdown-menu dropdown-menu-end shadow bg-light" aria-labelledby="menuDropdownButton">
-                            <a class="dropdown-item text-dark my-2 text-center" href="" title="My Profile">
+                            <span class="dropdown-item text-dark my-2 text-center" title="My Profile">
                                 <div>{{Session::get('user')->name}}</div>
                                 <div class="small">{{Session::get('user')->userName}}</div>
-                            </a>
+                            </span>
                             <hr class="dropdown-divider border-secondary"/>
-                            <a class="dropdown-item text-dark my-2" href="">
+                            <a class="dropdown-item text-dark my-2" href="{{url('/passwordReset')}}">
                                 <div class="row flex-nowrap">
                                     <div class="col-2 text-center"><i class="fas fa-cogs"></i></div>
                                     <div class="col-10">Settings</div>
@@ -62,6 +66,13 @@
                                     <div class="col-10">Logout</div>
                                 </div>
                             </a>
+                            <hr class="dropdown-divider border-secondary"/>
+                            <p class="small m-0 text-center text-dark">
+                                <span>Powered by </span>
+                                <a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank">
+                                    <strong>NOMi</strong>
+                                </a>
+                            </p>
                         </div>
                         @endif
                     </div>
