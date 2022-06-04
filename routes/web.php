@@ -14,7 +14,7 @@ Route::get('/manageDevices', function () { return view('manageDevicesView'); })-
 Route::get('/login', [AuthController::class, 'loginView'])->middleware('Authen');
 Route::post('/login', [AuthController::class, 'loginAuth'])->middleware('Authen');
 
-Route::get('/settings', [AuthController::class, 'passwordResetView'])->middleware(['Authen', 'ifAdmin']);
+Route::get('/settings', [AuthController::class, 'passwordResetView'])->middleware('Authen');
 Route::post('/passwordResetAuth', [AuthController::class, 'passwordResetAuth'])->middleware(['Authen', 'ifAdmin']);
 
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('Authen');
