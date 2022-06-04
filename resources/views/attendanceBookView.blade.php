@@ -22,7 +22,8 @@
 	var table = new Tabulator(document.getElementById("attendanceTable"),
 	{
 		layout:"fitColumns",
-		ajaxURL:"/api/getAttendances",
+		// ajaxURL:"/api/getAttendances",
+		data:<?php echo $attendanceDetail; ?>,
 		placeholder:"No Record Found.",
 		pagination: true,
 		paginationSize:10,
@@ -44,4 +45,4 @@
 
 	document.getElementById("printTable").addEventListener("click", () => table.print(false, true));
 	document.getElementById("downloadTable").addEventListener("click", () => table.download("json", "AttendanceBook.json"));
-</Script>
+</script>
