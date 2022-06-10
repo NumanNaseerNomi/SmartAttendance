@@ -7,32 +7,26 @@
 #define WiFiSSID      "Tenda_D343D7"
 #define WiFiPassword  "123456780"
 
-//String pageURL = "http://192.168.1.5/rfidattendance/getdata.php"; //computer IP or the server domain
-//String pageURL = "http://192.168.1.7/SmartAttendance/public/api/getAttendances"; // get url
-String pageURL = "http://192.168.1.7/SmartAttendance/public/api/markAttendance";
-//String pageURL = "http://jsonplaceholder.typicode.com/users";
+#define DeviceToken "26452NOMi"
 
-//#define device_token "e38b0be586e50be9"
-#define device_token "26452NOMi"
-
-WiFiClient wifiClient;
-HTTPClient httpClient;
+#define URLPath  "http://192.168.1.7/SmartAttendance/public/api/markAttendance"
 
 #define lcdAddress  0x27
 #define lcdColumns  16
 #define lcdRows     2
-
 LiquidCrystal_I2C lcd(lcdAddress, lcdColumns, lcdRows);
 
 #define rfidRSTpin  D3
 #define rfidSSpin   D4
-
 MFRC522 mfrc522(rfidSSpin, rfidRSTpin);
 
 byte readcard[4];
 String  rfidTagID;
 
 boolean getID();
+
+WiFiClient wifiClient;
+HTTPClient httpClient;
 
 void setup()
 {
@@ -62,12 +56,6 @@ void setup()
   
   Serial.println("\nWiFi Connected.");
 
-//  delay(5000);
-
-//  lcd.clear();
-
-//  Serial.begin(9600);
-
   lcd.clear();
 }
 
@@ -92,25 +80,20 @@ void loop()
     
     lcd.print("RFID: ");
     lcd.print(rfidTagID);
-
-//    String getData = "?card_uid=" + String(rfidTagID) + "&device_token=" + String(device_token); // Add the Card ID to the GET array in order to send it
-    String getData = "?cardId=" + String(rfidTagID) + "&deviceToken=" + String(device_token); // Add the Card ID to the GET array in order to send it
-    String finalURL = pageURL + getData;
-
-//    httpClient.begin(wifiClient, pageURL);
-//    int statusCode = httpClient.GET();
-//    String payload = httpClient.getString();
-//    httpClient.end();
+    
+    #define Parameters "?cardId="+String(rfidTagID)+"&deviceToken="+String(DeviceToken)
+    String fullURL = URLPath Parameters;
+//    Serial.println(fullURL);
 
 //    HTTPClient http;
-    httpClient.begin(wifiClient, finalURL);
+    httpClient.begin(wifiClient, fullURL);
     httpClient.addHeader("Content-Type", "application/json");
     int statusCode = httpClient.sendRequest("PUT", "");
     String payload = httpClient.getString();
+    httpClient.end();
  
     Serial.println(statusCode);
     Serial.println(payload);
-//    delay(5000);
 
     delay(3000);
     lcd.clear();
