@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <LiquidCrystal_I2C.h>
@@ -9,7 +10,7 @@
 
 #define DeviceToken "26452NOMi"
 
-#define URLPath  "http://192.168.1.7/SmartAttendance/public/api/markAttendance"
+#define URLPath  "http://192.168.1.2/SmartAttendance/public/api/markAttendance"
 
 #define lcdAddress  0x27
 #define lcdColumns  16
@@ -30,7 +31,7 @@ HTTPClient httpClient;
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   
   WiFi.begin(WiFiSSID, WiFiPassword);
   
@@ -70,9 +71,9 @@ void loop()
   if(getID())
   {
     lcd.clear();
-
-//    lcd.setCursor(2, 0);
-//    lcd.print("Place Wait");
+    
+    lcd.setCursor(2, 0);
+    lcd.print("Place Wait");
 
     lcd.setCursor(0, 0);
     lcd.print("Smart Attendance");
@@ -83,9 +84,9 @@ void loop()
     
     #define Parameters "?cardId="+String(rfidTagID)+"&deviceToken="+String(DeviceToken)
     String fullURL = URLPath Parameters;
-//    Serial.println(fullURL);
-
-//    HTTPClient http;
+    // Serial.println(fullURL);
+    
+    // HTTPClient http;
     httpClient.begin(wifiClient, fullURL);
     httpClient.addHeader("Content-Type", "application/json");
     int statusCode = httpClient.sendRequest("PUT", "");
