@@ -24,7 +24,7 @@
 							<input type="text" class="form-control" name="userName" required>
 						</div>
 						<div class="mb-3">
-							<label for="password" class="form-label">Enter Pin Code</label>
+							<label for="password" class="form-label">Enter Password</label>
 							<input type="password" class="form-control" name="password" required>
 						</div>
 						<div class="d-grid gap-2">
