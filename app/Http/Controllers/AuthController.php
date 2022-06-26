@@ -15,16 +15,24 @@ class AuthController extends Controller
 
     function loginAuth(Request $request)
     {
+        $request->validate(
+            [
+                '_token' => 'required',
+                'userName' => 'required',
+                'password' => 'required'
+            ]
+        );
+
         $user = UsersModel::where('userName', $request->userName)->first();
         
-        if($user && Hash::check($request->pinCode, $user->pinCode))
+        if($user && Hash::check($request->password, $user->password))
         {
             $request->session()->put('user', $user);
             return redirect('/');
         }
         else
         {
-            return "Invalid";
+            return redirect()->back();
         }
     }
 
@@ -37,12 +45,21 @@ class AuthController extends Controller
     {
         $request->validate(
             [
-                'token' => 'required',
-                'currentPinCode' => 'required',
-                'newPinCode' => 'required|confirmed',
+                '_token' => 'required',
+                'current_password' => 'required',
+                'password' => 'required|confirmed|min:4|max:20'
             ]
         );
-        dd($request);
+
+        if(Hash::check($request->current_password, $request->session()->get('user')->password))
+        {
+            UsersModel::whereId($request->session()->get('user')->id)->update(['password' => Hash::make($request->password)]);
+            return redirect('/');
+        }
+        else
+        {
+            return redirect()->back()->withErrors("Old Password does not match.");
+        }
     }
 
     function logout(Request $request)
