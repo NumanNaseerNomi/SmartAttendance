@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
                 'userName' => 'admin',
                 'about' => 'Admin',
                 'cardId' => '00000',
-                'pinCode' => Hash::make('1234'),
+                'password' => Hash::make('admin'),
                 'isAdmin' => '1',
                 'isBlocked' => '0',
             ]
