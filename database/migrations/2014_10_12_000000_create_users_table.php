@@ -21,7 +21,7 @@ return new class extends Migration
                 $table->string('userName')->unique();
                 $table->string('about');
                 $table->string('cardId')->unique();
-                $table->string('pinCode');
+                $table->string('password');
                 $table->boolean('isAdmin');
                 $table->boolean('isBlocked');
             }
