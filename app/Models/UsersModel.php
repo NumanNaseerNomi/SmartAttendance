@@ -10,7 +10,6 @@ class UsersModel extends Model
     use HasFactory;
 
     protected $table = 'Users';
-    protected $fillable = ['name', 'userName', 'about', 'cardId', 'pinCode', 'isAdmin', 'isBlocked'];
-    // protected $hidden = ['pinCode'];
+    protected $fillable = ['name', 'userName', 'about', 'cardId', 'password', 'isAdmin', 'isBlocked'];
     public $timestamps = false;
 }
