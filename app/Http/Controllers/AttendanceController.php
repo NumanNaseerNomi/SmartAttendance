@@ -10,44 +10,44 @@ use App\Models\UsersModel;
 
 class AttendanceController extends Controller
 {
-    public function getAttendances()
-    {
-        $result = AttendanceModel::orderBy('checkIn', 'DESC')->get();
-        // $result = AttendanceModel::all();
+    // public function getAttendances()
+    // {
+    //     $result = AttendanceModel::orderBy('checkIn', 'DESC')->get();
+    //     // $result = AttendanceModel::all();
         
-        $attendances = array();
+    //     $attendances = array();
 
-        for($i = 0; $i < sizeof($result); $i++)
-        {
-            $attendances[$i] =
-            [
-                'attendance' => $result[$i],
-                'user' => AttendanceModel::find($result[$i]->id)->getUser,
-                'device' => AttendanceModel::find($result[$i]->id)->getDevice
-            ];
-        }
+    //     for($i = 0; $i < sizeof($result); $i++)
+    //     {
+    //         $attendances[$i] =
+    //         [
+    //             'attendance' => $result[$i],
+    //             'user' => AttendanceModel::find($result[$i]->id)->getUser,
+    //             'device' => AttendanceModel::find($result[$i]->id)->getDevice
+    //         ];
+    //     }
 
-        return $attendances;
-    }
+    //     return $attendances;
+    // }
 
-    public function getAttendance(Request $request)
-    {
-        $result = AttendanceModel::find($request->id);
+    // public function getAttendance(Request $request)
+    // {
+    //     $result = AttendanceModel::find($request->id);
         
-        if($result)
-        {
-            $attendance =
-            [
-                'attendance' => $result,
-                'user' => AttendanceModel::find($result->id)->getUser,
-                'device' => AttendanceModel::find($result->id)->getDevice
-            ];
+    //     if($result)
+    //     {
+    //         $attendance =
+    //         [
+    //             'attendance' => $result,
+    //             'user' => AttendanceModel::find($result->id)->getUser,
+    //             'device' => AttendanceModel::find($result->id)->getDevice
+    //         ];
             
-            return $attendance;
-        }
+    //         return $attendance;
+    //     }
 
-        return $result;
-    }
+    //     return $result;
+    // }
 
     public function markAttendance(Request $request)
     {
@@ -114,8 +114,8 @@ class AttendanceController extends Controller
         }
     }
 
-    public function delete(Request $request)
-    {
-        return AttendanceModel::find($request->id)->delete();
-    }
+    // public function delete(Request $request)
+    // {
+    //     return AttendanceModel::find($request->id)->delete();
+    // }
 }
