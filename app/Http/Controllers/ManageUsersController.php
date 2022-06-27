@@ -10,8 +10,8 @@ class ManageUsersController extends Controller
 {
     function show()
     {
-        $usersDetail = UsersModel::all();
-        return view('manageUsersView')->with(['usersDetail' => $usersDetail]);
+        $result = UsersModel::all();
+        return view('manageUsersView')->with(['result' => $result]);
     }
 
     function save(Request $request)
