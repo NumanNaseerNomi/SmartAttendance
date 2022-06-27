@@ -58,25 +58,25 @@
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($usersDetail as $user)
-									<tr id="editRow{{ $user->id }}">
-										<td>{{ $user->id }}</td>
+								@foreach($result as $row)
+									<tr id="editRow{{ $row->id }}">
+										<td>{{ $row->id }}</td>
 										<td>
-											<div>{{ $user->name }}</div>
-											<div>({{ $user->userName }})</div>
+											<div>{{ $row->name }}</div>
+											<div>({{ $row->userName }})</div>
 										</td>
-										<td>{{ $user->cardId }}</td>
-										<td>{{ $user->description }}</td>
+										<td>{{ $row->cardId }}</td>
+										<td>{{ $row->description }}</td>
 										<td>
-											@if($user->isBlocked)
+											@if($row->isBlocked)
 												<span class="text-danger">Blocked</span>
 											@else
 												<span class="text-success">Active</span>
 											@endif
 										</td>
 										<td>
-											@if(!$user->isAdmin)
-												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $user->id }}" onClick="editable('#editRow{{ $user->id }}')">
+											@if(!$row->isAdmin)
+												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
 													<i class="fas fa-edit"></i>
 												</button>
 											@endif
