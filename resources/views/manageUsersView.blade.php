@@ -59,7 +59,7 @@
 							</thead>
 							<tbody>
 								@foreach($usersDetail as $user)
-									<tr id="userRow{{ $user->id }}">
+									<tr id="editRow{{ $user->id }}">
 										<td>{{ $user->id }}</td>
 										<td>
 											<div>{{ $user->name }}</div>
@@ -76,7 +76,7 @@
 										</td>
 										<td>
 											@if(!$user->isAdmin)
-												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $user->id }}" onClick="editUser('#userRow{{ $user->id }}')">
+												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $user->id }}" onClick="editable('#editRow{{ $user->id }}')">
 													<i class="fas fa-edit"></i>
 												</button>
 											@endif
