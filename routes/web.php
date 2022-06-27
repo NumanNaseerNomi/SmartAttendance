@@ -10,8 +10,8 @@ use App\Http\Controllers\ManageDevicesController;
 Route::get('/', function () { return redirect('/attendanceBook'); })->middleware('Authen');
 Route::get('/attendanceBook', [AttendanceBookController::class, 'attendanceBookView'])->middleware('Authen');
 
-Route::get('/manageUsers', [ManageUsersController::class, 'manageUsersView'])->middleware(['Authen', 'ifAdmin']);
-Route::post('/saveUser', [ManageUsersController::class, 'saveUser'])->middleware(['Authen', 'ifAdmin']);
+Route::get('/manageUsers', [ManageUsersController::class, 'show'])->middleware(['Authen', 'ifAdmin']);
+Route::post('/saveUser', [ManageUsersController::class, 'save'])->middleware(['Authen', 'ifAdmin']);
 
 Route::get('/manageDevices', [ManageDevicesController::class, 'manageDevicesView'])->middleware(['Authen', 'ifAdmin']);
 
