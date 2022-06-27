@@ -75,16 +75,9 @@
 											@endif
 										</td>
 										<td>
-											{{-- @if(!$row->isAdmin) --}}
-												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
-													<i class="fas fa-edit"></i>
-												</button>
-											{{-- @endif --}}
-											@if(Session::get('user')->isAdmin && !$row->isAdmin)
-												<button type="button" class="btn btn-outline-danger btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
-													<i class="fas fa-trash-alt"></i>
-												</button>
-											@endif
+											<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
+												<i class="fas fa-edit"></i>
+											</button>
 										</td>
 									</tr>
 								@endforeach
