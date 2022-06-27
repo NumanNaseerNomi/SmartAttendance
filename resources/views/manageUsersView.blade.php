@@ -5,9 +5,9 @@
 	<div class="row">
 		<div class="col-sm-12 col-md-4 mb-4">
 			<div class="card bg-light text-dark shadow">
-				<div class="card-header text-center"><h5>Add New User</h5></div>
+				<div class="card-header text-center"><h5>Add New {{ $type }}</h5></div>
 				<div class="card-body">
-					<form method="post" action="{{ url('/saveUser') }}">
+					<form method="post" action="{{ url('/save' . $type) }}">
 						@csrf
 						<div class="mb-3">
 							<label for="id" class="form-label">Serial Number</label>
@@ -18,8 +18,8 @@
 							<input type="text" class="form-control form-control-sm" id="name" name="name" required>
 						</div>
 						<div class="mb-3">
-							<label for="cardId" class="form-label">Card ID</label>
-							<input type="text" class="form-control form-control-sm" id="cardId" name="cardId" required>
+							<label for="{{ strtolower($idType) }}Id" class="form-label">{{ $idType }} ID</label>
+							<input type="text" class="form-control form-control-sm" id="{{ strtolower($idType) }}Id" name="{{ strtolower($idType) }}Id" required>
 						</div>
 						<div class="mb-3">
 							<label for="description" class="form-label">Description</label>
@@ -43,7 +43,7 @@
 		</div>
 		<div class="col-sm-12 col-md-8 mb-4">
 			<div class="card text-center shadow">
-				<div class="card-header"><h5>Manage Attendance Users</h5></div>
+				<div class="card-header"><h5>Manage Attendance {{ $type }}s</h5></div>
 				<div class="container-fluid">
 					<div class="card-body table-responsive">
 						<table class="table table-bordered table-striped table-sm align-middle text-nowrap">
@@ -51,7 +51,7 @@
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">NAME</th>
-									<th scope="col">CARD ID</th>
+									<th scope="col">{{ strtoupper($idType) }} ID</th>
 									<th scope="col">DESCRIPTION</th>
 									<th scope="col">STATUS</th>
 									<th scope="col">MANAGE</th>
@@ -63,7 +63,7 @@
 										<td>{{ $row->id }}</td>
 										<td>
 											<div>{{ $row->name }}</div>
-											<div>({{ $row->userName }})</div>
+											<div>{{ $row->userName }}</div>
 										</td>
 										<td>{{ $row->cardId }}</td>
 										<td>{{ $row->description }}</td>
@@ -100,7 +100,7 @@
 
 		document.querySelector("#id").value = parseInt(tableCell[0].innerHTML);
 		document.querySelector("#name").value = tableCell[1].querySelector("div").innerHTML;
-		document.querySelector("#cardId").value = tableCell[2].innerHTML;
+		document.querySelector("#{{ strtolower($idType) }}Id").value = tableCell[2].innerHTML;
 		document.querySelector("#description").value = tableCell[3].innerHTML;
 	}
 </script>
