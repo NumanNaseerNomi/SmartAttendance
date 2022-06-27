@@ -65,7 +65,7 @@
 											<div>{{ $row->name }}</div>
 											<div class="text-muted">{{ $row->userName }}</div>
 										</td>
-										<td>{{ $row->cardId }}</td>
+										<td>{{ $row->cardId . $row->deviceId}}</td>
 										<td>{{ $row->description }}</td>
 										<td>
 											@if($row->isBlocked)
@@ -75,9 +75,14 @@
 											@endif
 										</td>
 										<td>
-											@if(!$row->isAdmin)
+											{{-- @if(!$row->isAdmin) --}}
 												<button type="button" class="btn btn-outline-primary btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
 													<i class="fas fa-edit"></i>
+												</button>
+											{{-- @endif --}}
+											@if(Session::get('user')->isAdmin && !$row->isAdmin)
+												<button type="button" class="btn btn-outline-danger btn-sm" value="{{ $row->id }}" onClick="editable('#editRow{{ $row->id }}')">
+													<i class="fas fa-trash-alt"></i>
 												</button>
 											@endif
 										</td>
