@@ -22,8 +22,8 @@
 							<input type="text" class="form-control form-control-sm" id="cardId" name="cardId" required>
 						</div>
 						<div class="mb-3">
-							<label for="about" class="form-label">About</label>
-							<input type="text" class="form-control form-control-sm" id="about" name="about" required>
+							<label for="description" class="form-label">Description</label>
+							<input type="text" class="form-control form-control-sm" id="description" name="description" required>
 						</div>
 						<div class="mb-3">
 							<label for="status" class="form-label">Status</label>
@@ -52,7 +52,7 @@
 									<th scope="col">#</th>
 									<th scope="col">NAME</th>
 									<th scope="col">CARD ID</th>
-									<th scope="col">ABOUT</th>
+									<th scope="col">DESCRIPTION</th>
 									<th scope="col">STATUS</th>
 									<th scope="col">MANAGE</th>
 								</tr>
@@ -66,7 +66,7 @@
 											<div>({{ $user->userName }})</div>
 										</td>
 										<td>{{ $user->cardId }}</td>
-										<td>{{ $user->about }}</td>
+										<td>{{ $user->description }}</td>
 										<td>
 											@if($user->isBlocked)
 												<span class="text-danger">Blocked</span>
@@ -85,7 +85,7 @@
 								@endforeach
 							</tbody>
 						</table>
-					</dav>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -94,13 +94,13 @@
 @include("components/footerComponent")
 
 <script>
-	function editUser(id)
+	function editable(id)
 	{
 		let tableCell =  document.querySelector(id).querySelectorAll("td");
 
 		document.querySelector("#id").value = parseInt(tableCell[0].innerHTML);
 		document.querySelector("#name").value = tableCell[1].querySelector("div").innerHTML;
 		document.querySelector("#cardId").value = tableCell[2].innerHTML;
-		document.querySelector("#about").value = tableCell[3].innerHTML;
+		document.querySelector("#description").value = tableCell[3].innerHTML;
 	}
 </script>
