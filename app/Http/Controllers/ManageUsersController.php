@@ -21,7 +21,7 @@ class ManageUsersController extends Controller
                 '_token' => 'required',
                 'name' => 'required',
                 'cardId' => 'required',
-                'about' => 'required',
+                'description' => 'required',
                 'isBlocked' => 'required'
             ]
         );
