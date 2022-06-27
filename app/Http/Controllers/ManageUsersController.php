@@ -8,13 +8,13 @@ use App\Models\UsersModel;
 
 class ManageUsersController extends Controller
 {
-    function manageUsersView()
+    function show()
     {
         $usersDetail = UsersModel::all();
         return view('manageUsersView')->with(['usersDetail' => $usersDetail]);
     }
 
-    function saveUser(Request $request)
+    function save(Request $request)
     {
         $request->validate(
             [
