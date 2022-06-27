@@ -16,13 +16,9 @@ Route::post('/saveUser', [ManageUsersController::class, 'save'])->middleware(['A
 Route::get('/manageDevices', [ManageDevicesController::class, 'show'])->middleware(['Authen', 'ifAdmin']);
 Route::post('/saveDevice', [ManageDevicesController::class, 'save'])->middleware(['Authen', 'ifAdmin']);
 
-Route::get('/manageDevicesO', function () { return view('manageDevicesViewO'); })->middleware(['Authen', 'ifAdmin']);
-
-
 Route::get('/login', [AuthController::class, 'loginView'])->middleware('Authen');
 Route::post('/login', [AuthController::class, 'loginAuth'])->middleware('Authen');
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('Authen');
 
 Route::get('/settings', [AuthController::class, 'passwordResetView'])->middleware('Authen');
 Route::post('/passwordResetAuth', [AuthController::class, 'passwordResetAuth'])->middleware(['Authen']);
-
-Route::get('/logout', [AuthController::class, 'logout'])->middleware('Authen');
