@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
             [
                 'name' => 'Admin',
                 'userName' => 'admin',
-                'about' => 'Admin',
+                'description' => 'Admin',
                 'cardId' => '00000',
                 'password' => Hash::make('admin'),
                 'isAdmin' => '1',
