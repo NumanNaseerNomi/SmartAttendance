@@ -10,6 +10,6 @@ class DevicesModel extends Model
     use HasFactory;
 
     protected $table = 'Devices';
-    protected $fillable = ['name', 'token', 'description', 'isBlocked'];
+    protected $fillable = ['name', 'deviceId', 'description', 'isBlocked'];
     public $timestamps = false;
 }
