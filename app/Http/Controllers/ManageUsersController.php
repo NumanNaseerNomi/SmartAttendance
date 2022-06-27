@@ -11,7 +11,7 @@ class ManageUsersController extends Controller
     function show()
     {
         $result = UsersModel::all();
-        return view('manageUsersView')->with(['result' => $result, 'type' => 'User', 'idType' => 'Card']);
+        return view('manageView')->with(['result' => $result, 'type' => 'User', 'idType' => 'Card']);
     }
 
     function save(Request $request)
