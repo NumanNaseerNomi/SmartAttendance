@@ -13,7 +13,8 @@ Route::get('/attendanceBook', [AttendanceBookController::class, 'attendanceBookV
 Route::get('/manageUsers', [ManageUsersController::class, 'show'])->middleware(['Authen', 'ifAdmin']);
 Route::post('/saveUser', [ManageUsersController::class, 'save'])->middleware(['Authen', 'ifAdmin']);
 
-Route::get('/manageDevices', [ManageDevicesController::class, 'manageDevicesView'])->middleware(['Authen', 'ifAdmin']);
+Route::get('/manageDevices', [ManageDevicesController::class, 'show'])->middleware(['Authen', 'ifAdmin']);
+Route::post('/saveDevice', [ManageDevicesController::class, 'save'])->middleware(['Authen', 'ifAdmin']);
 
 Route::get('/manageDevicesO', function () { return view('manageDevicesViewO'); })->middleware(['Authen', 'ifAdmin']);
 
