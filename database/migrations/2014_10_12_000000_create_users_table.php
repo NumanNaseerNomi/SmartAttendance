@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->id();
                 $table->string('name');
                 $table->string('userName')->unique();
-                $table->string('about');
+                $table->string('description');
                 $table->string('cardId')->unique();
                 $table->string('password');
                 $table->boolean('isAdmin');
