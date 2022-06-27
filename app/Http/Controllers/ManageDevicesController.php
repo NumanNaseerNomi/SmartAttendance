@@ -4,38 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\UsersModel;
+use App\Models\DevicesModel;
 
 class ManageDevicesController extends Controller
 {
-    function manageDevicesView()
+    function show()
     {
-        $usersDetail = UsersModel::all();
-        return view('manageDevicesView')->with(['usersDetail' => $usersDetail]);
+        $result = DevicesModel::all();
+        return view('manageView')->with(['result' => $result, 'type' => 'Device', 'idType' => 'Device']);
     }
 
-    function saveUser(Request $request)
+    function save(Request $request)
     {
         $request->validate(
             [
                 '_token' => 'required',
                 'name' => 'required',
-                'cardId' => 'required',
-                'about' => 'required',
+                'deviceId' => 'required',
+                'description' => 'required',
                 'isBlocked' => 'required'
             ]
         );
 
         if($request->id)
         {
-            $result = UsersModel::find($request->id);
+            $result = DevicesModel::find($request->id);
             $result->update($request->all());
         }
         else
         {
-            $userName = str_replace(' ', '.', strtolower($request->name)) . "." . rand(1,999);
-            $request->merge(['userName' => $userName, 'password' => Hash::make('admin'), 'isAdmin' => 0]);
-            UsersModel::create($request->all());
+            DevicesModel::create($request->all());
         }
         
         return redirect()->back();
