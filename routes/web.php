@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AttendanceBookController;
 use App\Http\Controllers\ManageUsersController;
+use App\Http\Controllers\ManageDevicesController;
 
 Route::get('/', function () { return redirect('/attendanceBook'); })->middleware('Authen');
 Route::get('/attendanceBook', [AttendanceBookController::class, 'attendanceBookView'])->middleware('Authen');
@@ -12,7 +13,9 @@ Route::get('/attendanceBook', [AttendanceBookController::class, 'attendanceBookV
 Route::get('/manageUsers', [ManageUsersController::class, 'manageUsersView'])->middleware(['Authen', 'ifAdmin']);
 Route::post('/saveUser', [ManageUsersController::class, 'saveUser'])->middleware(['Authen', 'ifAdmin']);
 
-Route::get('/manageDevices', function () { return view('manageDevicesView'); })->middleware(['Authen', 'ifAdmin']);
+Route::get('/manageDevices', [ManageDevicesController::class, 'manageDevicesView'])->middleware(['Authen', 'ifAdmin']);
+
+Route::get('/manageDevicesO', function () { return view('manageDevicesViewO'); })->middleware(['Authen', 'ifAdmin']);
 
 
 Route::get('/login', [AuthController::class, 'loginView'])->middleware('Authen');
