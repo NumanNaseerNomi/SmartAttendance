@@ -34,16 +34,12 @@
 							</select>
 						</div>
 						<div class="row">
-							{{-- <div class="col-6"> --}}
-								<div class="d-grid gap-2 col-6">
-									<button type="reset" class="btn btn-outline-primary btn-sm">Reset</button>
-								</div>
-							{{-- </div> --}}
-							{{-- <div class="col-6"> --}}
-								<div class="d-grid gap-2 col-6">
-									<button type="submit" class="btn btn-outline-success btn-sm">Save</button>
-								</div>
-							{{-- </div> --}}
+							<div class="d-grid gap-2 col-6">
+								<button type="reset" class="btn btn-outline-primary btn-sm">Reset</button>
+							</div>
+							<div class="d-grid gap-2 col-6">
+								<button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+							</div>
 						</div>
 					</form>
 				</div>
