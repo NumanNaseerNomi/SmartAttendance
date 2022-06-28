@@ -30,6 +30,6 @@ mix.combine
         'node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
         'node_modules/@fortawesome/fontawesome-free/scss/brands.scss'
     ],
-    'public/plugins/fontawesome/fontawesomeTemp.scss'
+    'node_modules/@fortawesome/fontawesome-free/scss/fontawesomeTemp.scss'
 );
-mix.sass('node_modules/@fortawesome/fontawesome-free/scss/fontawesomeTemp.scss', 'public/plugins/fontawesome/css/fontawesome.css');
+mix.sass('node_modules/@fortawesome/fontawesome-free/scss/fontawesomeTemp.scss', 'public/plugins/fontawesome/fontawesome.css');
