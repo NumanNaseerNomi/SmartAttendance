@@ -69,7 +69,7 @@ class AttendanceController extends Controller
                     
                     $status = $attendanceModel->update($attendanceData);
 
-                    return ['message' => "Checked Out Successfully.", "status" => $status];
+                    return ['message' => "Checked Out Successfully.", "status" => $attendanceModel];
                 }
             }
         }
