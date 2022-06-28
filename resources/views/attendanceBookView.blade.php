@@ -34,7 +34,7 @@
 		[
 			{title:"USER NAME", field:"user.userName", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
 			{title:"CARD ID", field:"user.cardId", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
-			{title:"ABOUT USER", field:"user.about", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
+			{title:"DESCRIPTION", field:"user.description", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
 			{title:"CHECK IN", field:"attendance.checkIn", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
 			{title:"CHECK OUT", field:"attendance.checkOut", headerHozAlign:"center", hozAlign:"center", headerFilter:true, resizable:false, minWidth:150},
 			{title:"Is Present?", field:"attendance.isPresent", headerHozAlign:"center", hozAlign:"center", headerFilter:"tickCross", formatter:"tickCross",
