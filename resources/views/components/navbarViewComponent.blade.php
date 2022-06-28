@@ -8,7 +8,7 @@
                     <div class="dropdown-menu dropdown-menu-start shadow bg-light" aria-labelledby="menu">
                         <a class="dropdown-item text-dark my-2" href="{{url('/attendanceBook')}}">
                             <div class="row flex-nowrap">
-                                <div class="col-2 text-center"><i class="fas fa-clipboard-user"></i></div>
+                                <div class="col-2 text-center"><i class="fas fa-clipboard-check"></i></i></div>
                                 <div class="col-10">Attendance Book</div>
                             </div>
                         </a>
@@ -21,7 +21,7 @@
                             </a>
                             <a class="dropdown-item text-dark my-2" href="{{url('/manageDevices')}}">
                                 <div class="row flex-nowrap">
-                                    <div class="col-2 text-center"><i class="fas fa-phone-laptop"></i></div>
+                                    <div class="col-2 text-center"><i class="fas fa-satellite"></i></i></div>
                                     <div class="col-10">Manage Devices</div>
                                 </div>
                             </a>
