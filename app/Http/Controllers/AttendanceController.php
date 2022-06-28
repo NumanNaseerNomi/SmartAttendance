@@ -14,12 +14,12 @@ class AttendanceController extends Controller
     {
         $request->validate(
             [
-                'deviceToken' => 'required',
+                'deviceId' => 'required',
                 'cardId' => 'required',
             ]
         );
 
-        $devicesModel = DevicesModel::where('token', $request->deviceToken)->first();
+        $devicesModel = DevicesModel::where('deviceId', $request->deviceId)->first();
 
         if($devicesModel == null)
         {
