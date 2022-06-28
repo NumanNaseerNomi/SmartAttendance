@@ -21,3 +21,15 @@ mix.copy('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'public/plugi
 
 mix.copy('node_modules/tabulator-tables/dist/css/tabulator.min.css', 'public/plugins/tabulator/');
 mix.copy('node_modules/tabulator-tables/dist/js/tabulator.min.js', 'public/plugins/tabulator/');
+
+mix.combine
+(
+    [
+        'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss',
+        'node_modules/@fortawesome/fontawesome-free/scss/regular.scss',
+        'node_modules/@fortawesome/fontawesome-free/scss/solid.scss',
+        'node_modules/@fortawesome/fontawesome-free/scss/brands.scss'
+    ],
+    'public/plugins/fontawesome/fontawesomeTemp.scss'
+);
+mix.sass('node_modules/@fortawesome/fontawesome-free/scss/fontawesomeTemp.scss', 'public/plugins/fontawesome/css/fontawesome.css');
