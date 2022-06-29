@@ -9,7 +9,7 @@
 #define WiFiSSID      "Tenda_D343D7"
 #define WiFiPassword  "123456780"
 
-#define DeviceToken "26452NOMi"
+#define DeviceId "26452NOMi"
 
 #define URLPath  "http://192.168.1.3/SmartAttendance/public/api/markAttendance"
 
@@ -83,7 +83,7 @@ void loop()
     lcd.print("RFID: ");
     lcd.print(rfidTagID);
     
-    #define Parameters "?cardId="+String(rfidTagID)+"&deviceId="+String(DeviceToken)
+    #define Parameters "?cardId="+String(rfidTagID)+"&deviceId="+String(DeviceId)
     String fullURL = URLPath Parameters;
     // Serial.println(fullURL);
     
