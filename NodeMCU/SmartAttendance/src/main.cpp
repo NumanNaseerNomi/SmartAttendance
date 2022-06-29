@@ -4,13 +4,14 @@
 #include <LiquidCrystal_I2C.h>
 #include <SPI.h>
 #include <MFRC522.h>
+#include <ArduinoJson.h>
 
 #define WiFiSSID      "Tenda_D343D7"
 #define WiFiPassword  "123456780"
 
 #define DeviceToken "26452NOMi"
 
-#define URLPath  "http://192.168.1.2/SmartAttendance/public/api/markAttendance"
+#define URLPath  "http://192.168.1.3/SmartAttendance/public/api/markAttendance"
 
 #define lcdAddress  0x27
 #define lcdColumns  16
@@ -82,7 +83,7 @@ void loop()
     lcd.print("RFID: ");
     lcd.print(rfidTagID);
     
-    #define Parameters "?cardId="+String(rfidTagID)+"&deviceToken="+String(DeviceToken)
+    #define Parameters "?cardId="+String(rfidTagID)+"&deviceId="+String(DeviceToken)
     String fullURL = URLPath Parameters;
     // Serial.println(fullURL);
     
@@ -95,6 +96,25 @@ void loop()
  
     Serial.println(statusCode);
     Serial.println(payload);
+
+    const size_t capacity = JSON_OBJECT_SIZE(3) + JSON_ARRAY_SIZE(2) + 60;
+    DynamicJsonDocument doc(capacity);
+
+    DeserializationError error = deserializeJson(doc, payload);
+
+    if (error) 
+    {
+      Serial.print(F("deserializeJson() failed: "));
+      Serial.println(error.f_str());
+      return;
+    }
+
+    String message = doc["message"];
+    
+    // Serial.println(message);
+    // lcd.setCursor(0, 1);
+    // lcd.print(message);
+    // Serial.println(doc["message"]);
 
     delay(3000);
     lcd.clear();
