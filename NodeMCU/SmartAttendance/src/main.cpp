@@ -11,7 +11,7 @@
 
 #define DeviceId "26452NOMi"
 
-#define URLPath  "http://192.168.1.3/SmartAttendance/public/api/markAttendance"
+#define URLPath  "http://192.168.1.2/SmartAttendance/public/api/markAttendance"
 
 #define lcdAddress  0x27
 #define lcdColumns  16
