@@ -3,10 +3,10 @@
 	<div class="card-header text-center"><h5>Add New {{ $type }}</h5></div>
         <div class="card-body">
             <form method="post" action="{{ url('/save' . $type) }}">
-                @csrf
+                <!-- @csrf -->
                 <div class="mb-3">
-                    <label for="id" class="form-label">Serial Number</label>
-                    <input type="text" class="form-control form-control-sm" id="id" name="id" readonly required>
+                    <label class="form-label">Serial Number</label>
+                    <input class="form-control form-control-sm" v-model="authUser.isAdmin" readonly required />
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
