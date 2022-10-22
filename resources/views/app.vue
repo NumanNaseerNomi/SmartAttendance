@@ -1,5 +1,6 @@
 <template>
     <TopNavbar></TopNavbar>
+    <h1>Hi NOMi</h1>
 </template>
 
 <script>
