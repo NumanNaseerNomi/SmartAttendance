@@ -53,27 +53,27 @@
                                 <button class="btn btn-link text-dark py-0" title="My Profile" type="button" id="menuDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fas fa-user fs-4"></i>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-end shadow bg-light" aria-labelledby="menuDropdownButton">
-                                    <span class="dropdown-item text-dark my-2 text-center" title="My Profile">
-                                        <!-- <div>{{Session::get('user')->name}}</div>
-                                        <div class="small">{{Session::get('user')->userName}}</div> -->
+                                <div class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="menuDropdownButton">
+                                    <span class="dropdown-item my-2 text-center" title="My Profile">
+                                        <div>Name</div>
+                                        <div class="small">@UserName</div>
                                     </span>
-                                    <hr class="dropdown-divider border-secondary"/>
-                                    <a class="dropdown-item text-dark my-2" href="/settings">
+                                    <hr class="dropdown-divider"/>
+                                    <a class="dropdown-item my-2" href="/settings">
                                         <div class="row flex-nowrap">
                                             <div class="col-2 text-center"><i class="fas fa-cogs"></i></div>
                                             <div class="col-10">Settings</div>
                                         </div>
                                     </a>
-                                    <hr class="dropdown-divider border-secondary"/>
-                                    <a class="dropdown-item text-dark my-2" href="/logout">
+                                    <hr class="dropdown-divider"/>
+                                    <a class="dropdown-item my-2" href="/logout">
                                         <div class="row flex-nowrap">
                                             <div class="col-2 text-center"><i class="fas fa-power-off"></i></div>
                                             <div class="col-10">Logout</div>
                                         </div>
                                     </a>
-                                    <hr class="dropdown-divider border-secondary"/>
-                                    <p class="small m-0 text-center text-dark">
+                                    <hr class="dropdown-divider"/>
+                                    <p class="small m-0 text-center">
                                         <span>Powered by </span>
                                         <a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank">
                                             <strong>NOMi</strong>
