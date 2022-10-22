@@ -100,14 +100,6 @@
             };
 
             return data;
-        },
-
-        // methods:
-        // {
-        //     increment()
-        //     {
-        //         this.count++;
-        //     }
-        // },
+        }
     }
 </script>
