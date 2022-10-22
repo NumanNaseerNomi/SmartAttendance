@@ -3,38 +3,40 @@
         <nav class="navbar fixed-top shadow py-1">
             <div class="container-fluid">
                 <!-- NOMi - Side Navigation Bar - Start -->
-                <div class="dropdown" v-if="authUser">
-                    <button class="btn btn-link text-dark py-0" title="Menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-bars fs-4"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="menu">
-                        <a class="dropdown-item my-2" href="/attendanceBook'">
-                            <div class="row flex-nowrap">
-                                <div class="col-2 text-center"><i class="fas fa-clipboard-check"></i></div>
-                                <div class="col-10">Attendance Book</div>
-                            </div>
-                        </a>
-                        <!-- @if(Session::get('user')->isAdmin) -->
-                            <a class="dropdown-item my-2" href="/manageUsers">
+                <div class="btn-group">
+                    <div class="dropdown" v-if="authUser">
+                        <button class="btn btn-link text-dark py-0" title="Menu" type="button" id="menu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bars fs-4"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="menu">
+                            <a class="dropdown-item my-2" href="/attendanceBook'">
                                 <div class="row flex-nowrap">
-                                    <div class="col-2 text-center"><i class="fas fa-users"></i></div>
-                                    <div class="col-10">Manage Users</div>
+                                    <div class="col-2 text-center"><i class="fas fa-clipboard-check"></i></div>
+                                    <div class="col-10">Attendance Book</div>
                                 </div>
                             </a>
-                            <a class="dropdown-item my-2" href="/manageDevices">
-                                <div class="row flex-nowrap">
-                                    <div class="col-2 text-center"><i class="fas fa-satellite"></i></div>
-                                    <div class="col-10">Manage Devices</div>
-                                </div>
-                            </a>
-                        <!-- @endif -->
-                        <hr class="dropdown-divider"/>
-                        <p class="small m-0 text-center">
-                            <span>Powered by </span>
-                            <a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank">
-                                <strong>NOMi</strong>
-                            </a>
-                        </p>
+                            <template v-if="authUser.isAdmin">
+                                <a class="dropdown-item my-2" href="/manageUsers">
+                                    <div class="row flex-nowrap">
+                                        <div class="col-2 text-center"><i class="fas fa-users"></i></div>
+                                        <div class="col-10">Manage Users</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item my-2" href="/manageDevices">
+                                    <div class="row flex-nowrap">
+                                        <div class="col-2 text-center"><i class="fas fa-satellite"></i></div>
+                                        <div class="col-10">Manage Devices</div>
+                                    </div>
+                                </a>
+                            </template>
+                            <hr class="dropdown-divider"/>
+                            <p class="small m-0 text-center">
+                                <span>Powered by </span>
+                                <a class="text-decoration-none text-dark" href="https://www.fb.com/numan.naseer.nomi" target="_blank">
+                                    <strong>NOMi</strong>
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- NOMi - Side Navigation Bar - End -->
@@ -99,7 +101,7 @@
         {
             let data =
             {
-                authUser: {name:"Numan Naseer Nomi", userName:"numan.naseer.nomi"},
+                authUser: {name:"Numan Naseer Nomi", userName:"numan.naseer.nomi", isAdmin:1},
                 // authUser: null
             };
 
