@@ -9,8 +9,8 @@
                     <input class="form-control form-control-sm" v-model="authUser.isAdmin" readonly required />
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control form-control-sm" id="name" name="name" required>
+                    <label class="form-label">Name *</label>
+                    <input class="form-control form-control-sm" v-model="authUser.name" required />
                 </div>
                 <div class="mb-3">
                     <label for="{{ strtolower($idType) }}Id" class="form-label">{{ $idType }} ID</label>
