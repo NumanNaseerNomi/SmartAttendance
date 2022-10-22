@@ -1,3 +1,14 @@
 <template>
-    <h1>Hello NOMi</h1>
+    <TopNavbar></TopNavbar>
 </template>
+
+<script>
+    import TopNavbar from "./components/TopNavbar.vue";
+    export default
+    {
+        components:
+        {
+            TopNavbar
+        }
+    }
+</script>
