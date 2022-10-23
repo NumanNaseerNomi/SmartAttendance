@@ -17,11 +17,11 @@
 					<form @submit.prevent="login()">
 						<div class="mb-3">
 							<label class="form-label">Enter User Name</label>
-                            <input class="form-control" v-model="records[0].id" required />
+                            <input class="form-control" v-model="authUser.userName" required />
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Enter Password</label>
-                            <input class="form-control" type="password" v-model="records[0].id" required />
+                            <input class="form-control" type="password" v-model="authUser.password" required />
 						</div>
 						<div class="d-grid gap-2">
 							<button type="submit" class="btn btn-outline-primary">Login</button>
@@ -41,27 +41,12 @@
             {
                 let data =
                 {
-                    type: "User/Device",
-                    records:
-                    [
-                        {
-                            id:545,
-                            name:"Numan Naseer Nomi",
-                            userName:"numan.naseer.nomi",
-                            description:"sdf sd",
-                            isActive:1,
-                            productId: "sd5f4s"
-                        },
-                        {
-                            id:545,
-                            name:"Numan Naseer Nomi",
-                            userName:"numan.naseer.nomi",
-                            description:"sdf sd",
-                            isActive:0,
-                            productId: "sd5f4s"
-                        }
-                    ],
-                    // records: {}
+                    // authUser:
+                    // {
+                    //     userName:"numan.naseer.nomi",
+                    //     password:"sdfsdasd fasdfasdf asdf a"
+                    // },
+                    authUser: {}
                 };
     
                 return data;
