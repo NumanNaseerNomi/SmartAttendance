@@ -10,6 +10,7 @@
 				<ViewRecord></ViewRecord>
 			</div>
 		</div>
+		<LoginForm></LoginForm>
 	</div>
 </template>
 
@@ -17,9 +18,10 @@
     import TopNavbar from "./components/TopNavbar.vue";
     import SaveRecord from "./components/SaveRecord.vue";
 	import ViewRecord from "./components/ViewRecord.vue";
+	import LoginForm from "./components/ViewRecord.vue";
     
     export default
     {
-        components: {TopNavbar, SaveRecord, ViewRecord}
+        components: {TopNavbar, SaveRecord, ViewRecord, LoginForm}
     }
 </script>
