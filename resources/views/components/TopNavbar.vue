@@ -1,6 +1,6 @@
 <template>
     <header class="mb-5">
-        <nav class="navbar fixed-top shadow py-1">
+        <nav class="navbar fixed-top shadow py-1 bg-light">
             <div class="container-fluid">
                 <!-- NOMi - Side Navigation Bar - Start -->
                 <div class="btn-group">
