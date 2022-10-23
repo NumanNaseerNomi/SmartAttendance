@@ -9,7 +9,7 @@
                             <i class="fas fa-bars fs-4"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-start shadow" aria-labelledby="menu">
-                            <a class="dropdown-item my-2" href="/attendanceBook'">
+                            <a class="dropdown-item my-2" href="/attendanceBook">
                                 <div class="row flex-nowrap">
                                     <div class="col-2 text-center"><i class="fas fa-clipboard-check"></i></div>
                                     <div class="col-10">Attendance Book</div>
