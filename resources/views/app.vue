@@ -7,7 +7,7 @@
 			<SaveRecord></SaveRecord>
 		</div>
 		<div class="col-sm-12 col-md-8 mb-4">
-			
+			<ViewRecord></ViewRecord>
 		</div>
 	</div>
 </div>
@@ -16,12 +16,10 @@
 <script>
     import TopNavbar from "./components/TopNavbar.vue";
     import SaveRecord from "./components/SaveRecord.vue";
+	import ViewRecord from "./components/ViewRecord.vue";
     
     export default
     {
-        components:
-        {
-            TopNavbar, SaveRecord
-        }
+        components: {TopNavbar, SaveRecord, ViewRecord}
     }
 </script>
