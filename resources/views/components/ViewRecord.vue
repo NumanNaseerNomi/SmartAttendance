@@ -3,7 +3,7 @@
         <div class="card-header"><h5>Manage Attendance {Card/Device}s</h5></div>
         <div class="container-fluid">
             <div class="card-body table-responsive">
-                <table class="table table-bordered table-striped table-sm align-middle text-nowrap">
+                <table class="table table-bordered table-striped table-sm align-middle text-nowrap" v-if="records.length">
                     <thead class="align-middle">
                         <tr>
                             <th scope="col">#</th>
@@ -15,7 +15,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- @foreach($result as $row) -->
                         <tr id="editRow{{ record.id }}" v-for="record in records">
                             <td>{{ record.id }}</td>
                             <td>
@@ -37,9 +36,11 @@
                                 </button>
                             </td>
                         </tr>
-                        <!-- @endforeach -->
                     </tbody>
                 </table>
+                <div v-else>
+                    <h3>No Record Found</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -69,7 +70,7 @@
                             status:0
                         }
                     ],
-                    // record: {}
+                    // records: {}
                 };
     
                 return data;
@@ -77,6 +78,12 @@
     
             methods:
             {
+                loadRecords()
+                {
+                    fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    .then(response => response.json())
+                    .then(json => console.log(json));
+                }
                 // saveRecord()
                 // {
                 //     // console.log(this.record);
@@ -103,6 +110,11 @@
                 //     .then((response) => response.json())
                 //     .then((json) => console.log(json));
                 // }
+            },
+
+            mounted()
+            {
+                this.loadRecords();
             }
         }
     </script>
