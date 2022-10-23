@@ -1,16 +1,16 @@
 <template>
     <TopNavbar></TopNavbar>
     <br/>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-12 col-md-4 mb-4">
-			<SaveRecord></SaveRecord>
-		</div>
-		<div class="col-sm-12 col-md-8 mb-4">
-			<ViewRecord></ViewRecord>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4 mb-4">
+				<SaveRecord></SaveRecord>
+			</div>
+			<div class="col-sm-12 col-md-8 mb-4">
+				<ViewRecord></ViewRecord>
+			</div>
 		</div>
 	</div>
-</div>
 </template>
 
 <script>
