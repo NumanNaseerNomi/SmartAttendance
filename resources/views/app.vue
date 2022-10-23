@@ -7,8 +7,8 @@
 			<SaveRecord></SaveRecord>
 		</div>
 		<div class="col-sm-12 col-md-8 mb-4">
-			<!-- <div class="card text-center shadow">
-				<div class="card-header"><h5>Manage Attendance {{ $type }}s</h5></div>
+			<div class="card text-center shadow">
+				<div class="card-header"><h5>Manage Attendance {Card/Device}s</h5></div>
 				<div class="container-fluid">
 					<div class="card-body table-responsive">
 						<table class="table table-bordered table-striped table-sm align-middle text-nowrap">
@@ -16,14 +16,14 @@
 								<tr>
 									<th scope="col">#</th>
 									<th scope="col">NAME</th>
-									<th scope="col">{{ strtoupper($idType) }} ID</th>
+									<th scope="col">{Card/Device} ID</th>
 									<th scope="col">DESCRIPTION</th>
 									<th scope="col">STATUS</th>
 									<th scope="col">MANAGE</th>
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($result as $row)
+								<!-- @foreach($result as $row)
 									<tr id="editRow{{ $row->id }}">
 										<td>{{ $row->id }}</td>
 										<td>
@@ -45,12 +45,12 @@
 											</button>
 										</td>
 									</tr>
-								@endforeach
+								@endforeach -->
 							</tbody>
 						</table>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
 	</div>
 </div>
