@@ -35,11 +35,6 @@
             {
                 let data =
                 {
-                    // authUser:
-                    // {
-                    //     userName:"numan.naseer.nomi",
-                    //     password:"sdfsdasd fasdfasdf asdf a"
-                    // },
                     authUser: {},
 
                     // errors:
