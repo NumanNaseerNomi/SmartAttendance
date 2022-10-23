@@ -57,11 +57,29 @@
         {
             saveRecord()
             {
-                console.log(this.record);
+                // console.log(this.record);
                 this.record = {};
-                fetch('https://jsonplaceholder.typicode.com/todos/1')
-                .then(response => response.json())
-                .then(json => console.log(json))
+                // fetch('https://jsonplaceholder.typicode.com/todos/1')
+                // .then(response => response.json())
+                // .then(json => console.log(json))
+
+                let payload =
+                {
+                    title: "foo",
+                    body: "bar",
+                    userId: 1,
+                };
+
+                let apiRequestDetails =
+                {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {"Content-type": "application/json; charset=UTF-8"},
+                };
+
+                fetch("https://jsonplaceholder.typicode.com/posts", apiRequestDetails)
+                .then((response) => response.json())
+                .then((json) => console.log(json));
             }
         }
     }
