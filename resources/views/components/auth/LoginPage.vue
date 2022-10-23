@@ -1,15 +1,9 @@
 <template>
 <div class="container">
 	<div class="row justify-content-center">
-		<!-- @if ($errors->any()) -->
-			<div class="alert alert-danger">
-				<ul>
-					<!-- @foreach ($errors->all() as $error)
-						<li>{{ $error }}</li>
-					@endforeach -->
-				</ul>
-			</div>
-		<!-- @endif -->
+        <div class="alert alert-danger" v-if="errors">
+            <ul><li v-for="error in errors">{{ error }}</li></ul>
+        </div>
 		<div class="col-sm-12 col-md-6 col-lg-4">
 			<div class="card shadow">
 				<div class="card-header text-center"><h5>Login</h5></div>
@@ -46,7 +40,14 @@
                     //     userName:"numan.naseer.nomi",
                     //     password:"sdfsdasd fasdfasdf asdf a"
                     // },
-                    authUser: {}
+                    authUser: {},
+
+                    // errors:
+                    // {
+                    //     userName:"numan.naseer.nomi",
+                    //     password:"sdfsdasd fasdfasdf asdf a"
+                    // },
+                    errors: null,
                 };
     
                 return data;
@@ -54,43 +55,35 @@
     
             methods:
             {
-                loadRecords()
+                login()
                 {
-                    fetch('https://jsonplaceholder.typicode.com/todos')
-                    .then(response => response.json())
-                    .then(json => console.log(json));
-                }
-                // saveRecord()
-                // {
-                //     // console.log(this.record);
-                //     this.record = {};
-                //     // fetch('https://jsonplaceholder.typicode.com/todos/1')
-                //     // .then(response => response.json())
-                //     // .then(json => console.log(json))
+                    let payload =
+                    {
+                        title: "foo",
+                        body: "bar",
+                        userId: 1,
+                    };
     
-                //     let payload =
-                //     {
-                //         title: "foo",
-                //         body: "bar",
-                //         userId: 1,
-                //     };
+                    let apiRequestDetails =
+                    {
+                        method: "POST",
+                        body: JSON.stringify(payload),
+                        headers: {"Content-type": "application/json; charset=UTF-8"},
+                    };
     
-                //     let apiRequestDetails =
-                //     {
-                //         method: "POST",
-                //         body: JSON.stringify(payload),
-                //         headers: {"Content-type": "application/json; charset=UTF-8"},
-                //     };
-    
-                //     fetch("https://jsonplaceholder.typicode.com/posts", apiRequestDetails)
-                //     .then((response) => response.json())
-                //     .then((json) => console.log(json));
-                // }
-            },
+                    fetch("https://jsonplaceholder.typicode.com/posts", apiRequestDetails)
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+                    
+                    this.authUser =
+                    {
+                        userName:"numan.naseer.nomi",
+                        password:"sdfsdasd fasdfasdf asdf a"
+                    }
 
-            mounted()
-            {
-                this.loadRecords();
-            }
+                    this.errors = this.authUser;
+                    alert(this.errors.length);
+                },
+            },
         }
     </script>
