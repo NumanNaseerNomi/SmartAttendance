@@ -1,7 +1,7 @@
 <template>
     <TopNavbar></TopNavbar>
     <br/>
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col-sm-12 col-md-4 mb-4">
 				<SaveRecord></SaveRecord>
@@ -10,18 +10,19 @@
 				<ViewRecord></ViewRecord>
 			</div>
 		</div>
-		<LoginForm></LoginForm>
-	</div>
+	</div> -->
+	
+	<LoginPage></LoginPage>
 </template>
 
 <script>
     import TopNavbar from "./components/TopNavbar.vue";
     import SaveRecord from "./components/SaveRecord.vue";
 	import ViewRecord from "./components/ViewRecord.vue";
-	import LoginForm from "./components/ViewRecord.vue";
+	import LoginPage from "./components/auth/LoginPage.vue";
     
     export default
     {
-        components: {TopNavbar, SaveRecord, ViewRecord, LoginForm}
+        components: {TopNavbar, SaveRecord, ViewRecord, LoginPage}
     }
 </script>
