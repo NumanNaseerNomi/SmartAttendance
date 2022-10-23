@@ -1,6 +1,6 @@
 <template>
     <div class="card text-center shadow">
-        <div class="card-header"><h5>Manage Attendance {Card/Device}s</h5></div>
+        <div class="card-header"><h5>Manage {{ type }}s</h5></div>
         <div class="container-fluid">
             <div class="card-body table-responsive">
                 <table class="table table-bordered table-striped table-sm align-middle text-nowrap" v-if="records.length">
@@ -8,30 +8,27 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">NAME</th>
-                            <th scope="col">{Card/Device} ID</th>
+                            <th scope="col">{{ type }} ID</th>
                             <th scope="col">DESCRIPTION</th>
                             <th scope="col">STATUS</th>
                             <th scope="col">MANAGE</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="editRow{{ record.id }}" v-for="record in records">
+                        <tr v-for="record in records">
                             <td>{{ record.id }}</td>
                             <td>
                                 <div>{{ record.name }}</div>
                                 <div class="text-muted">{{ record.userName }}</div>
                             </td>
-                            <!-- <td>{{ record.cardId . record.deviceId}}</td> -->
+                            <td>{{ record.productId }}</td>
                             <td>{{ record.description }}</td>
-                            <!-- <td>
-                                @if(record.isBlocked)
-                                    <span class="text-danger">Blocked</span>
-                                @else
-                                    <span class="text-success">Active</span>
-                                @endif
-                            </td> -->
                             <td>
-                                <button type="button" class="btn btn-outline-primary btn-sm" value="{{ record.id }}" onClick="editable('#editRow{{ record.id }}')">
+                                <span v-if="record.isActive" class="text-success">Active</span>
+                                <span v-else class="text-danger">Blocked</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </button>
                             </td>
@@ -53,6 +50,7 @@
             {
                 let data =
                 {
+                    type: "User/Device",
                     records:
                     [
                         {
@@ -60,14 +58,16 @@
                             name:"Numan Naseer Nomi",
                             userName:"numan.naseer.nomi",
                             description:"sdf sd",
-                            status:0
+                            isActive:1,
+                            productId: "sd5f4s"
                         },
                         {
                             id:545,
                             name:"Numan Naseer Nomi",
                             userName:"numan.naseer.nomi",
                             description:"sdf sd",
-                            status:0
+                            isActive:0,
+                            productId: "sd5f4s"
                         }
                     ],
                     // records: {}
@@ -80,7 +80,7 @@
             {
                 loadRecords()
                 {
-                    fetch('https://jsonplaceholder.typicode.com/todos/1')
+                    fetch('https://jsonplaceholder.typicode.com/todos')
                     .then(response => response.json())
                     .then(json => console.log(json));
                 }
