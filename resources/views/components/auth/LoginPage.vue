@@ -85,6 +85,8 @@
                     // let myObj = { name: 'Skip', breed: 'Labrador' };
                     localStorage.setItem("authUser", JSON.stringify(this.authUser));
 
+                    this.errors = this.authUser;
+
                     // let item = JSON.parse(localStorage.getItem("authUser"));
                     // console.log(this.authUser);
                 },
