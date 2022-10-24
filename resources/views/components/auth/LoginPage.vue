@@ -1,9 +1,6 @@
 <template>
 <div class="container">
 	<div class="row justify-content-center">
-        <div class="alert alert-danger" v-if="errors">
-            <ul><li v-for="error in errors">{{ error }}</li></ul>
-        </div>
 		<div class="col-sm-12 col-md-6 col-lg-4">
 			<div class="card shadow">
 				<div class="card-header text-center"><h5>Login</h5></div>
@@ -16,6 +13,11 @@
 						<div class="mb-3">
 							<label class="form-label">Enter Password</label>
                             <input class="form-control" type="password" v-model="authUser.password" required />
+						</div>
+                        <div class="mb-3">
+							<div class="alert alert-danger" v-if="errors">
+                                <ul class="mb-0"><li v-for="error in errors">{{ error }}</li></ul>
+                            </div>
 						</div>
 						<div class="d-grid gap-2">
 							<button type="submit" class="btn btn-outline-primary">Login</button>
