@@ -50,12 +50,14 @@
     
             methods:
             {
+                
+
                 login()
                 {
                     let payload =
                     {
-                        "email": "eve.holt@reqres.in",
-                        "password": "cityslicka"
+                        "email": this.authUser.userName, // eve.holt@reqres.in
+                        "password": this.authUser.password, // "cityslicka"
                     };
     
                     let apiRequestDetails =
@@ -67,17 +69,27 @@
     
                     fetch("https://reqres.in/api/login", apiRequestDetails)
                     .then((response) => response.json())
-                    .then((json) => console.log(json));
-                    
-                    // this.authUser =
-                    // {
-                    //     userName:"numan.naseer.nomi",
-                    //     password:"sdfsdasd fasdfasdf asdf a"
-                    // }
-
-                    // this.errors = this.authUser;
-                    alert(1);
+                    .then((json) => this.authUserInfo(json))
+                    .catch((error) => console.warn(error));
                 },
+
+                authUserInfo(userInfo)
+                {
+                    this.authUser =
+                    {
+                        userName: this.authUser.userName,
+                        apiToken: userInfo.token,
+                    }
+                    // // console.log(userInfo);
+
+                    // let myObj = { name: 'Skip', breed: 'Labrador' };
+                    localStorage.setItem("authUser", JSON.stringify(this.authUser));
+
+                    // let item = JSON.parse(localStorage.getItem("authUser"));
+                    // console.log(this.authUser);
+                },
+
+                
             },
         }
     </script>
