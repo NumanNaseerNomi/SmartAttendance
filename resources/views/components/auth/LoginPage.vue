@@ -54,9 +54,8 @@
                 {
                     let payload =
                     {
-                        title: "foo",
-                        body: "bar",
-                        userId: 1,
+                        "email": "eve.holt@reqres.in",
+                        "password": "cityslicka"
                     };
     
                     let apiRequestDetails =
@@ -66,18 +65,18 @@
                         headers: {"Content-type": "application/json; charset=UTF-8"},
                     };
     
-                    fetch("https://jsonplaceholder.typicode.com/posts", apiRequestDetails)
+                    fetch("https://reqres.in/api/login", apiRequestDetails)
                     .then((response) => response.json())
                     .then((json) => console.log(json));
                     
-                    this.authUser =
-                    {
-                        userName:"numan.naseer.nomi",
-                        password:"sdfsdasd fasdfasdf asdf a"
-                    }
+                    // this.authUser =
+                    // {
+                    //     userName:"numan.naseer.nomi",
+                    //     password:"sdfsdasd fasdfasdf asdf a"
+                    // }
 
-                    this.errors = this.authUser;
-                    alert(this.errors.length);
+                    // this.errors = this.authUser;
+                    alert(1);
                 },
             },
         }
