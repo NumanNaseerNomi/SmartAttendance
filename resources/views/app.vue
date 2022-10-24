@@ -12,7 +12,7 @@
 		</div>
 	</div> -->
 	
-	<LoginPage></LoginPage>
+	<!-- <LoginPage></LoginPage> -->
 	<ChangePassword></ChangePassword>
 </template>
 
