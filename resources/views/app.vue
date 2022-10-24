@@ -13,6 +13,7 @@
 	</div> -->
 	
 	<LoginPage></LoginPage>
+	<ChangePassword></ChangePassword>
 </template>
 
 <script>
@@ -20,9 +21,10 @@
     import SaveRecord from "./components/SaveRecord.vue";
 	import ViewRecord from "./components/ViewRecord.vue";
 	import LoginPage from "./components/auth/LoginPage.vue";
+	import ChangePassword from "./components/auth/ChangePassword.vue";
     
     export default
     {
-        components: {TopNavbar, SaveRecord, ViewRecord, LoginPage}
+        components: {TopNavbar, SaveRecord, ViewRecord, LoginPage, ChangePassword}
     }
 </script>
