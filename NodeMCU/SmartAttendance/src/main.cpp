@@ -6,12 +6,12 @@
 #include <MFRC522.h>
 #include <ArduinoJson.h>
 
-#define WiFiSSID      "Tenda_D343D7"
-#define WiFiPassword  "123456780"
+#define WiFiSSID      "NOMi"
+#define WiFiPassword  "29170046664"
 
 #define DeviceId "26452NOMi"
 
-#define URLPath  "http://192.168.1.2/SmartAttendance/public/api/markAttendance"
+#define URLPath  "http://192.168.137.1/SmartAttendance/public/api/markAttendance"
 
 #define lcdAddress  0x27
 #define lcdColumns  16
@@ -106,6 +106,7 @@ void loop()
     {
       Serial.print(F("deserializeJson() failed: "));
       Serial.println(error.f_str());
+      lcd.clear();
       return;
     }
 
